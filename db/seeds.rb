@@ -16,4 +16,7 @@ Classroom.create(course_name: 'Chemistry', semester: "Fall #{Time.now.year}")
 
 Classroom.all.each_with_index do |classroom, i|
   classroom.students << [Student.limit(8).offset(i*2)]
-end
+end 
+
+Student.create(name: "Randy", hometown: "Cali", birthday: '1984-09-16 0:0:0')
+Student.create(name: "Candis", hometown: "Sierra Vista", birthday: '1987-04-18 0:0:0')

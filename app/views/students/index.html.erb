@@ -1,0 +1,6 @@
+<%= render partial: "search", locals: { students: @students.try(:first)} %>
+<br>
+<%= render partial: "student", collection: @students %> 
+
+
+

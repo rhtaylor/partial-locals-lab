@@ -1,0 +1,11 @@
+<%= form_tag(students_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %> 
+    <%= submit_tag("Search") %> 
+<% end %>  
+<% if @students.each do |student| %>
+<%  %>
+<br><%= student.try(:name) %> 
+<br><%= student.try(:birthday) %>
+<br><%= student.try(:hometown) %> 
+<% end %>
+<% end %>

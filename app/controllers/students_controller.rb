@@ -1,4 +1,8 @@
 class StudentsController < ApplicationController
+  def backdoor
+
+  end
+ 
   def new
     @student = Student.new
   end
@@ -16,15 +20,24 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
   end
 
-  def show
+  def show 
+    
     @student = Student.find(params[:id])
   end
 
-  def index
-    @students = Student.all
+  def index 
+    
+    if params[:search] == "" 
+      @students = Student.all 
+    else 
+      params[:search] != "" || params[:search] != nil 
+      
+    @students = Student.where(name: params[:search])
+    #@students.count == 0 ? @students = Student.all : @students = Student.where(name: params[:search])
+    end 
   end
 
   def student_params
-    params.require(:student).permit(:name, :birthday, :hometown)
+    params.require(:student).permit(:name, :birthday, :hometown, :search)
   end
 end
